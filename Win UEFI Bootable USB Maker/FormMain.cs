@@ -11,6 +11,8 @@ using System.IO;
 using System.Diagnostics;
 using System.Management;
 using System.Management.Instrumentation;
+
+
 namespace Win_UEFİ_Bootable_USB_Maker
 {
     public partial class FormMain : MetroFramework.Forms.MetroForm
@@ -108,22 +110,21 @@ namespace Win_UEFİ_Bootable_USB_Maker
                     metroLabel_Status.Text = "Status : Starting";
                     p.Start();
                     metroLabel_Status.Text = "Status : Selecting disk";
-                    MessageBox.Show("Select disk " );
-                    p.StandardInput.WriteLine("Select disk ");
+                    MessageBox.Show("Select disk " +diskNo);
+                    p.StandardInput.WriteLine("Select disk "+diskNo);
                     metroLabel_Status.Text = "Status : Cleaning";
                     p.StandardInput.WriteLine("clean");
                     metroLabel_Status.Text = "Status : Creating partition";
                     p.StandardInput.WriteLine("create partition primary");
                     metroLabel_Status.Text = "Status : Formatting";
                     p.StandardInput.WriteLine("format quick fs=fat32");
-                    p.StandardInput.WriteLine("active");
-                    metroLabel_Status.Text = "Status : Activating";
-                    p.StandardInput.WriteLine("assign");
-                    metroLabel_Status.Text = "Status : Assigning";
-                    p.StandardInput.WriteLine("exit");
-                    string output = p.StandardOutput.ReadToEnd();                 // Places the output to a variable
+                    metroLabel_Status.Text = "Status : Activating";           
+                    metroLabel_Status.Text = "Status : Assigning";               
                     p.WaitForExit();
-                    MessageBox.Show(output);
+                    metroLabel_Status.Text = "Status : Prepering Device for Copying Installer Files ";
+                    #endregion
+   
+
                 }
             }     
         }
@@ -145,9 +146,11 @@ namespace Win_UEFİ_Bootable_USB_Maker
             #region findPath
             string tempPath = metroComboBox_Devices.Text;
             path = tempPath.Remove(2, 1);
+            MessageBox.Show(path);
             #endregion
+
             #region findDiskIndex  
-            try //Find DiskIndex used by WQL (Sql for WMI) here
+            try //Finding DiskIndex used by WQL (Sql for WMI) here
             {
                 var searcher = new ManagementObjectSearcher(@"select * from Win32_DiskDrive");
                 foreach (ManagementObject disk in searcher.Get())
@@ -169,16 +172,19 @@ namespace Win_UEFİ_Bootable_USB_Maker
                             {
                                 string tempDiskNo=diskPartition.Properties["DeviceId"].Value.ToString();
                                 diskNo = tempDiskNo[6].ToString();//there is DiskIndex on 6th Index 
+                                MessageBox.Show(diskNo);
                             }       
                         }
                     }
                 }
                
             }
+           
             catch (ManagementException err)
             {
                 MessageBox.Show("An error occurred while querying for WMI data: " + err.Message);
             }
+
             #endregion
         }
     }

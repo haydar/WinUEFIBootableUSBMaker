@@ -31,3 +31,14 @@ C:\Users\tester\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB M
 C:\Users\tester\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\obj\Debug\Win_UEFİ_Bootable_USB_Maker.FormMain.resources
 C:\Users\tester\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\obj\Debug\Win_UEFİ_Bootable_USB_Maker.Properties.Resources.resources
 C:\Users\tester\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\obj\Debug\Win UEFI Bootable USB Maker.csproj.GenerateResource.Cache
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\obj\Debug\Win UEFİ Bootable USB Maker.exe
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\obj\Debug\Win UEFİ Bootable USB Maker.pdb
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\obj\Debug\Win UEFI Bootable USB Maker.csprojResolveAssemblyReference.cache
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\obj\Debug\Win_UEFİ_Bootable_USB_Maker.FormMain.resources
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\obj\Debug\Win_UEFİ_Bootable_USB_Maker.Properties.Resources.resources
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\obj\Debug\Win UEFI Bootable USB Maker.csproj.GenerateResource.Cache
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\Win UEFİ Bootable USB Maker.exe
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\Win UEFİ Bootable USB Maker.pdb
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\MetroFramework.dll
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\Win UEFİ Bootable USB Maker.exe.config

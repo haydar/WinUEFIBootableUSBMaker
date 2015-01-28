@@ -32,7 +32,6 @@
             this.metroComboBox_Devices = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel_SourceFolder = new MetroFramework.Controls.MetroLabel();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
-            this.textBox_Browse = new System.Windows.Forms.TextBox();
             this.metroButton_BrowseFolder = new MetroFramework.Controls.MetroButton();
             this.metroCheckBox_Accept = new MetroFramework.Controls.MetroCheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -41,6 +40,7 @@
             this.metroRadioButton_İmage = new MetroFramework.Controls.MetroRadioButton();
             this.metroButton_Burn = new MetroFramework.Controls.MetroButton();
             this.metroLabel_Status = new MetroFramework.Controls.MetroLabel();
+            this.textBox_Browse = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,14 +76,6 @@
             this.metroLabel_SourceFolder.Style = MetroFramework.MetroColorStyle.Pink;
             this.metroLabel_SourceFolder.TabIndex = 0;
             this.metroLabel_SourceFolder.Text = "Source           :";
-            // 
-            // textBox_Browse
-            // 
-            this.textBox_Browse.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox_Browse.Location = new System.Drawing.Point(155, 204);
-            this.textBox_Browse.Name = "textBox_Browse";
-            this.textBox_Browse.Size = new System.Drawing.Size(160, 29);
-            this.textBox_Browse.TabIndex = 2;
             // 
             // metroButton_BrowseFolder
             // 
@@ -125,7 +117,7 @@
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel1.Location = new System.Drawing.Point(23, 161);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(252, 38);
+            this.metroLabel1.Size = new System.Drawing.Size(250, 38);
             this.metroLabel1.TabIndex = 8;
             this.metroLabel1.Text = "Take  Windows İnstall Source Files From\r\n";
             // 
@@ -164,11 +156,20 @@
             // metroLabel_Status
             // 
             this.metroLabel_Status.AutoSize = true;
-            this.metroLabel_Status.Location = new System.Drawing.Point(178, 349);
+            this.metroLabel_Status.Location = new System.Drawing.Point(187, 349);
             this.metroLabel_Status.Name = "metroLabel_Status";
             this.metroLabel_Status.Size = new System.Drawing.Size(102, 19);
             this.metroLabel_Status.TabIndex = 15;
             this.metroLabel_Status.Text = "Status : Waiting ";
+            // 
+            // textBox_Browse
+            // 
+            this.textBox_Browse.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox_Browse.Location = new System.Drawing.Point(155, 204);
+            this.textBox_Browse.Name = "textBox_Browse";
+            this.textBox_Browse.ReadOnly = true;
+            this.textBox_Browse.Size = new System.Drawing.Size(160, 29);
+            this.textBox_Browse.TabIndex = 2;
             // 
             // FormMain
             // 
@@ -205,7 +206,6 @@
         private MetroFramework.Controls.MetroComboBox metroComboBox_Devices;
         private MetroFramework.Controls.MetroLabel metroLabel_SourceFolder;
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
-        private System.Windows.Forms.TextBox textBox_Browse;
         private MetroFramework.Controls.MetroButton metroButton_BrowseFolder;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox_Accept;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -214,6 +214,7 @@
         private MetroFramework.Controls.MetroRadioButton metroRadioButton_İmage;
         private MetroFramework.Controls.MetroButton metroButton_Burn;
         private MetroFramework.Controls.MetroLabel metroLabel_Status;
+        private System.Windows.Forms.TextBox textBox_Browse;
     }
 }
 
