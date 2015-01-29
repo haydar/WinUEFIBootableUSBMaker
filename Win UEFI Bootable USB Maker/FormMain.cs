@@ -19,7 +19,9 @@ namespace Win_UEFİ_Bootable_USB_Maker
         {
             InitializeComponent();
         }
+
         string path = "";
+        string diskNo = "";
        void list_RemovableDevices()
         {
             metroComboBox_Devices.Items.Clear();
@@ -29,7 +31,7 @@ namespace Win_UEFİ_Bootable_USB_Maker
                 if (drive.DriveType == DriveType.Removable && drive.IsReady == true)
                 {  
                     metroComboBox_Devices.Items.Add(drive.Name+drive.VolumeLabel);
-                    path = drive.Name;
+                    
                 }
             }
            
@@ -91,12 +93,13 @@ namespace Win_UEFİ_Bootable_USB_Maker
                 {
                     error += "\n -Source";
                 }
-                if (error != "You must fill in the fields below:\n")//İF there is error 
+                if (error != "You must fill in the fields below:\n")//İf there is error 
                 {
                     MetroMessageBox.Show(this, error, "Error", MessageBoxButtons.OK);
                 }
                 else
                 {
+                    #region CommandProcessesOfDiskpart
                     Process p = new Process();
                     p.StartInfo.FileName = Environment.SystemDirectory + @"\diskpart.exe";
                     p.StartInfo.UseShellExecute = false;                         
@@ -139,27 +142,44 @@ namespace Win_UEFİ_Bootable_USB_Maker
 
         private void metroComboBox_Devices_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            #region findPath
+            string tempPath = metroComboBox_Devices.Text;
+            path = tempPath.Remove(2, 1);
+            #endregion
+            #region findDiskIndex  
+            try //Find DiskIndex used by WQL (Sql for WMI) here
             {
-                ManagementObjectSearcher searcher =
-                    new ManagementObjectSearcher("root\\CIMV2",
-                    "SELECT * FROM Win32_DiskPartition.serialnumber=(SELECT * FROM win32_logicaldisk.deviceid=\"" + path + "");
-
-                foreach (ManagementObject queryObj in searcher.Get())
+                var searcher = new ManagementObjectSearcher(@"select * from Win32_DiskDrive");
+                foreach (ManagementObject disk in searcher.Get())
                 {
-                    MessageBox.Show(queryObj["Type"].ToString());
-                    if (queryObj["Name"].ToString()==metroComboBox_Devices.Text)
+                    var query = string.Format(@"ASSOCIATORS OF 
+                    {{Win32_DiskDrive.DeviceID='{0}'}}
+                    WHERE AssocClass = Win32_DiskDriveToDiskPartition",
+                    disk.Properties["DeviceID"].Value);
+                    foreach (ManagementObject diskPartition in new ManagementObjectSearcher(query).Get())
                     {
-                        MessageBox.Show("no:" + (int.Parse(queryObj["DiskIndex"].ToString())));
+                        var query2 = string.Format(@"ASSOCIATORS OF 
+                        {{Win32_DiskPartition.DeviceID='{0}'}}
+                        WHERE AssocClass = Win32_LogicalDiskToPartition",
+                        diskPartition.Properties["DeviceId"].Value);
+
+                        foreach (ManagementObject logicalDisk in new ManagementObjectSearcher(query2).Get())
+                        {
+                            if (path == logicalDisk.Properties["DeviceID"].Value.ToString())
+                            {
+                                string tempDiskNo=diskPartition.Properties["DeviceId"].Value.ToString();
+                                diskNo = tempDiskNo[6].ToString();//there is DiskIndex on 6th Index 
+                            }       
+                        }
                     }
-                   
                 }
+               
             }
             catch (ManagementException err)
             {
                 MessageBox.Show("An error occurred while querying for WMI data: " + err.Message);
             }
-
+            #endregion
         }
     }
 }
