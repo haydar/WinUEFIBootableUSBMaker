@@ -35,7 +35,7 @@ namespace Win_UEFİ_Bootable_USB_Maker
         {
             CDReader Reader = new CDReader(ISOStream, true, true);
             ExtractDirectory(Reader.Root, ExtractionPath + Path.GetFileNameWithoutExtension(ISOName) + "\\", "");
-            Reader.Dispose();
+                Reader.Dispose();
         }
     }
     void ExtractDirectory(DiscDirectoryInfo Dinfo, string RootPath, string PathinISO)
@@ -185,10 +185,8 @@ namespace Win_UEFİ_Bootable_USB_Maker
                     metroLabel_Status.Text = "Status : Prepering Device for Copying Installer Files ";
                     #endregion
                     if (metroRadioButton_İmage.Checked==true)
-                    {
-                        MessageBox.Show(textBox_Browse.Text+" dd "+path);
-                      
-                        ExtractISO(@""+textBox_Browse.Text,path+@"\\");
+                    {                      
+                        ExtractISO(@""+textBox_Browse.Text,path);
                     }
 
 
