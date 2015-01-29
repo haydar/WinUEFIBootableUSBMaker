@@ -27,7 +27,7 @@ namespace Win_UEFİ_Bootable_USB_Maker
         string path = "";
         string diskNo = "";
 
-      
+    
 
     void ExtractISO(string ISOName, string ExtractionPath)
     {
@@ -67,7 +67,7 @@ namespace Win_UEFİ_Bootable_USB_Maker
         {
             if (!Directory.Exists(path))
             {
-                Directory.CreateDirectory(path);
+                    Directory.CreateDirectory(path);
             }
         }
         catch (DirectoryNotFoundException Ex)
@@ -79,6 +79,8 @@ namespace Win_UEFİ_Bootable_USB_Maker
             AppendDirectory(Path.GetDirectoryName(path));
         }
     }
+
+
     void list_RemovableDevices()
         {
             metroComboBox_Devices.Items.Clear();
@@ -184,7 +186,9 @@ namespace Win_UEFİ_Bootable_USB_Maker
                     #endregion
                     if (metroRadioButton_İmage.Checked==true)
                     {
-                        
+                        MessageBox.Show(textBox_Browse.Text+" dd "+path);
+                      
+                        ExtractISO(@""+textBox_Browse.Text,path+@"\\");
                     }
 
 

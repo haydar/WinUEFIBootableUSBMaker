@@ -43,3 +43,10 @@ C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker
 C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\Win UEFİ Bootable USB Maker.exe.config
 C:\Users\tester\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\Win UEFİ Bootable USB Maker.exe.config
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.Common.dll
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.dll
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\MetroFramework.Design.dll
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.pdb
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.xml
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.Common.pdb
+C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.Common.xml
