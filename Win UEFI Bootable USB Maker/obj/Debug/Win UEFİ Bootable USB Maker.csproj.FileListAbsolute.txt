@@ -1,0 +1,13 @@
+c:\users\bt\documents\visual studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFİ Bootable USB Maker\bin\Debug\Win UEFİ Bootable USB Maker.exe
+c:\users\bt\documents\visual studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFİ Bootable USB Maker\bin\Debug\Win UEFİ Bootable USB Maker.pdb
+c:\users\bt\documents\visual studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFİ Bootable USB Maker\bin\Debug\MetroFramework.Design.dll
+c:\users\bt\documents\visual studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFİ Bootable USB Maker\bin\Debug\MetroFramework.dll
+c:\users\bt\documents\visual studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFİ Bootable USB Maker\bin\Debug\MetroFramework.Fonts.dll
+c:\users\bt\documents\visual studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFİ Bootable USB Maker\obj\Debug\Win_UEFİ_Bootable_USB_Maker.Properties.Resources.resources
+c:\users\bt\documents\visual studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFİ Bootable USB Maker\obj\Debug\Win UEFİ Bootable USB Maker.csproj.GenerateResource.Cache
+c:\users\bt\documents\visual studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFİ Bootable USB Maker\obj\Debug\Win UEFİ Bootable USB Maker.exe
+c:\users\bt\documents\visual studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFİ Bootable USB Maker\obj\Debug\Win UEFİ Bootable USB Maker.pdb
+c:\users\bt\documents\visual studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFİ Bootable USB Maker\obj\Debug\Win_UEFİ_Bootable_USB_Maker.FormMain.resources
+c:\users\bt\documents\visual studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFİ Bootable USB Maker\obj\Debug\Win UEFİ Bootable USB Maker.csprojResolveAssemblyReference.cache
+C:\Users\canom\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFİ Bootable USB Maker\obj\Debug\Win UEFİ Bootable USB Maker.exe
+C:\Users\canom\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFİ Bootable USB Maker\obj\Debug\Win UEFİ Bootable USB Maker.pdb

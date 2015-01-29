@@ -1,0 +1,22 @@
+C:\Users\canom\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\obj\Debug\Win UEFİ Bootable USB Maker.exe
+C:\Users\canom\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\obj\Debug\Win UEFİ Bootable USB Maker.pdb
+C:\Users\canom\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\obj\Debug\Win UEFI Bootable USB Maker.csprojResolveAssemblyReference.cache
+C:\Users\canom\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\obj\Debug\Win_UEFİ_Bootable_USB_Maker.FormMain.resources
+C:\Users\canom\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\obj\Debug\Win_UEFİ_Bootable_USB_Maker.Properties.Resources.resources
+C:\Users\canom\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\obj\Debug\Win UEFI Bootable USB Maker.csproj.GenerateResource.Cache
+C:\Users\canom\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\bin\Debug\Win UEFİ Bootable USB Maker.exe
+C:\Users\canom\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\bin\Debug\Win UEFİ Bootable USB Maker.pdb
+C:\Users\canom\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\bin\Debug\MetroFramework.Design.dll
+C:\Users\canom\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\bin\Debug\MetroFramework.dll
+C:\Users\canom\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\obj\Debug\Win UEFİ Bootable USB Maker.exe
+C:\Users\User\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\obj\Debug\Win UEFİ Bootable USB Maker.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\bin\Debug\Win UEFİ Bootable USB Maker.exe
+C:\Users\User\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\bin\Debug\Win UEFİ Bootable USB Maker.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\bin\Debug\MetroFramework.Design.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\bin\Debug\MetroFramework.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\obj\Debug\Win UEFI Bootable USB Maker.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\obj\Debug\Win_UEFİ_Bootable_USB_Maker.FormMain.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\obj\Debug\Win_UEFİ_Bootable_USB_Maker.Properties.Resources.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\Win UEFİ Bootable USB Maker\Win UEFI Bootable USB Maker\obj\Debug\Win UEFI Bootable USB Maker.csproj.GenerateResource.Cache
