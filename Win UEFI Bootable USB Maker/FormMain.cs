@@ -27,61 +27,60 @@ namespace Win_UEFİ_Bootable_USB_Maker
         string path = "";
         string diskNo = "";
 
-    
+        private void ExtractISO(string toExtract, string folderName)
+        {
+            // reads the ISO
+            CDReader Reader = new CDReader(File.Open(toExtract, FileMode.Open), true);
+            // passes the root directory the folder name and the folder to extract
+            ExtractDirectory(Reader.Root, folderName /*+ Path.GetFileNameWithoutExtension(toExtract)*/ + "\\", "Bootable USB");
+            // clears reader and frees memory
+            Reader.Dispose();
+        }
 
-    void ExtractISO(string ISOName, string ExtractionPath)
-    {
-        using (FileStream ISOStream = File.Open(ISOName, FileMode.Open))
+        private void ExtractDirectory(DiscDirectoryInfo Dinfo, string RootPath, string PathinISO)
         {
-            CDReader Reader = new CDReader(ISOStream, true, true);
-            ExtractDirectory(Reader.Root, ExtractionPath + Path.GetFileNameWithoutExtension(ISOName) + "\\", "");
-                Reader.Dispose();
-        }
-    }
-    void ExtractDirectory(DiscDirectoryInfo Dinfo, string RootPath, string PathinISO)
-    {
-        if (!string.IsNullOrWhiteSpace(PathinISO))
-        {
-            PathinISO += "\\" + Dinfo.Name;
-        }
-        RootPath += "\\" + Dinfo.Name;
-        AppendDirectory(RootPath);
-        foreach (DiscDirectoryInfo dinfo in Dinfo.GetDirectories())
-        {
-            ExtractDirectory(dinfo, RootPath, PathinISO);
-        }
-        foreach (DiscFileInfo finfo in Dinfo.GetFiles())
-        {
-            using (Stream FileStr = finfo.OpenRead())
+            if (!string.IsNullOrWhiteSpace(PathinISO))
             {
-                using (FileStream Fs = File.Create(RootPath + "\\" + finfo.Name)) // Here you can Set the BufferSize Also e.g. File.Create(RootPath + "\\" + finfo.Name, 4 * 1024)
+                PathinISO += "\\" + Dinfo.Name;
+            }
+            RootPath += "\\" + Dinfo.Name;
+            AppendDirectory(RootPath);
+            foreach (DiscDirectoryInfo dinfo in Dinfo.GetDirectories())
+            {
+                ExtractDirectory(dinfo, RootPath, PathinISO);
+            }
+            foreach (DiscFileInfo finfo in Dinfo.GetFiles())
+            {
+                using (Stream FileStr = finfo.OpenRead())
                 {
-                    FileStr.CopyTo(Fs, 4 * 1024); // Buffer Size is 4 * 1024 but you can modify it in your code as per your need
+                    using (FileStream Fs = File.Create(RootPath + "\\" + finfo.Name)) // Here you can Set the BufferSize Also e.g. File.Create(RootPath + "\\" + finfo.Name, 4 * 1024)
+                    {
+                        FileStr.CopyTo(Fs, 4 * 1024); // Buffer Size is 4 * 1024 but you can modify it in your code as per your need
+                    }
                 }
             }
         }
-    }
-    static void AppendDirectory(string path)
-    {
-        try
+
+        static void AppendDirectory(string path)
         {
-            if (!Directory.Exists(path))
+            try
             {
+                if (!Directory.Exists(path))
+                {
                     Directory.CreateDirectory(path);
+                }
             }
+            catch (DirectoryNotFoundException Ex)
+            {
+                AppendDirectory(Path.GetDirectoryName(path));
+            }
+            catch (PathTooLongException Ex)
+            {
+                AppendDirectory(Path.GetDirectoryName(path));
+            }
+            
         }
-        catch (DirectoryNotFoundException Ex)
-        {
-            AppendDirectory(Path.GetDirectoryName(path));
-        }
-        catch (PathTooLongException Exx)
-        {
-            AppendDirectory(Path.GetDirectoryName(path));
-        }
-    }
-
-
-    void list_RemovableDevices()
+        void list_RemovableDevices()
         {
             metroComboBox_Devices.Items.Clear();
             DriveInfo[] drives = DriveInfo.GetDrives();
@@ -158,7 +157,7 @@ namespace Win_UEFİ_Bootable_USB_Maker
                 }
                 else
                 {
-                    #region CommandProcessesOfDiskpart
+                   /* #region CommandProcessesOfDiskpart
                     Process p = new Process();
                     p.StartInfo.CreateNoWindow = true;
                     p.StartInfo.FileName = Environment.SystemDirectory + @"\diskpart.exe";
@@ -168,7 +167,6 @@ namespace Win_UEFİ_Bootable_USB_Maker
                     metroLabel_Status.Text = "Status : Starting";
                     p.Start();
                     metroLabel_Status.Text = "Status : Selecting disk";
-                    MessageBox.Show("Select disk " + diskNo);
                     p.StandardInput.WriteLine("Select disk " + diskNo);
                     metroLabel_Status.Text = "Status : Cleaning";
                     p.StandardInput.WriteLine("clean");
@@ -183,7 +181,7 @@ namespace Win_UEFİ_Bootable_USB_Maker
                     p.StandardInput.WriteLine("exit");
                     p.WaitForExit();
                     metroLabel_Status.Text = "Status : Prepering Device for Copying Installer Files ";
-                    #endregion
+                    #endregion*/
                     if (metroRadioButton_İmage.Checked==true)
                     {                      
                         ExtractISO(@""+textBox_Browse.Text,path);
@@ -211,7 +209,6 @@ namespace Win_UEFİ_Bootable_USB_Maker
             #region findPath
             string tempPath = metroComboBox_Devices.Text;
             path = tempPath.Remove(2, 1);
-            MessageBox.Show(path);
             #endregion
 
             #region findDiskIndex  
@@ -237,7 +234,6 @@ namespace Win_UEFİ_Bootable_USB_Maker
                             {
                                 string tempDiskNo=diskPartition.Properties["DeviceId"].Value.ToString();
                                 diskNo = tempDiskNo[6].ToString();//there is DiskIndex on 6th Index 
-                                MessageBox.Show(diskNo);
                             }       
                         }
                     }
