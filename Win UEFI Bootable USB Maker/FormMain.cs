@@ -11,9 +11,6 @@ using System.IO;
 using System.Diagnostics;
 using System.Management;
 using System.Management.Instrumentation;
-using DiscUtils;
-using DiscUtils.Iso9660;
-
 
 namespace Win_UEFİ_Bootable_USB_Maker
 {
@@ -27,59 +24,6 @@ namespace Win_UEFİ_Bootable_USB_Maker
         string path = "";
         string diskNo = "";
 
-        private void ExtractISO(string toExtract, string folderName)
-        {
-            // reads the ISO
-            CDReader Reader = new CDReader(File.Open(toExtract, FileMode.Open), true);
-            // passes the root directory the folder name and the folder to extract
-            ExtractDirectory(Reader.Root, folderName /*+ Path.GetFileNameWithoutExtension(toExtract)*/ + "\\", "Bootable USB");
-            // clears reader and frees memory
-            Reader.Dispose();
-        }
-
-        private void ExtractDirectory(DiscDirectoryInfo Dinfo, string RootPath, string PathinISO)
-        {
-            if (!string.IsNullOrWhiteSpace(PathinISO))
-            {
-                PathinISO += "\\" + Dinfo.Name;
-            }
-            RootPath += "\\" + Dinfo.Name;
-            AppendDirectory(RootPath);
-            foreach (DiscDirectoryInfo dinfo in Dinfo.GetDirectories())
-            {
-                ExtractDirectory(dinfo, RootPath, PathinISO);
-            }
-            foreach (DiscFileInfo finfo in Dinfo.GetFiles())
-            {
-                using (Stream FileStr = finfo.OpenRead())
-                {
-                    using (FileStream Fs = File.Create(RootPath + "\\" + finfo.Name)) // Here you can Set the BufferSize Also e.g. File.Create(RootPath + "\\" + finfo.Name, 4 * 1024)
-                    {
-                        FileStr.CopyTo(Fs, 4 * 1024); // Buffer Size is 4 * 1024 but you can modify it in your code as per your need
-                    }
-                }
-            }
-        }
-
-        static void AppendDirectory(string path)
-        {
-            try
-            {
-                if (!Directory.Exists(path))
-                {
-                    Directory.CreateDirectory(path);
-                }
-            }
-            catch (DirectoryNotFoundException Ex)
-            {
-                AppendDirectory(Path.GetDirectoryName(path));
-            }
-            catch (PathTooLongException Ex)
-            {
-                AppendDirectory(Path.GetDirectoryName(path));
-            }
-            
-        }
         void list_RemovableDevices()
         {
             metroComboBox_Devices.Items.Clear();
@@ -157,37 +101,36 @@ namespace Win_UEFİ_Bootable_USB_Maker
                 }
                 else
                 {
-                   /* #region CommandProcessesOfDiskpart
-                    Process p = new Process();
-                    p.StartInfo.CreateNoWindow = true;
-                    p.StartInfo.FileName = Environment.SystemDirectory + @"\diskpart.exe";
-                    p.StartInfo.UseShellExecute = false;
-                    p.StartInfo.RedirectStandardOutput = true;
-                    p.StartInfo.RedirectStandardInput = true;
-                    metroLabel_Status.Text = "Status : Starting";
-                    p.Start();
-                    metroLabel_Status.Text = "Status : Selecting disk";
-                    p.StandardInput.WriteLine("Select disk " + diskNo);
-                    metroLabel_Status.Text = "Status : Cleaning";
-                    p.StandardInput.WriteLine("clean");
-                    metroLabel_Status.Text = "Status : Creating partition";
-                    p.StandardInput.WriteLine("create partition primary");
-                    metroLabel_Status.Text = "Status : Formatting";
-                    p.StandardInput.WriteLine("format quick fs=fat32");
-                    metroLabel_Status.Text = "Status : Activating";
-                    p.StandardInput.WriteLine("active");
-                    metroLabel_Status.Text = "Status : Assigning";
-                    p.StandardInput.WriteLine("assign");
-                    p.StandardInput.WriteLine("exit");
-                    p.WaitForExit();
-                    metroLabel_Status.Text = "Status : Prepering Device for Copying Installer Files ";
-                    #endregion*/
-                    if (metroRadioButton_İmage.Checked==true)
-                    {                      
-                        ExtractISO(@""+textBox_Browse.Text,path);
-                    }
-
-
+                    /* #region CommandProcessesOfDiskpart
+                     Process p = new Process();
+                     p.StartInfo.CreateNoWindow = true;
+                     p.StartInfo.FileName = Environment.SystemDirectory + @"\diskpart.exe";
+                     p.StartInfo.UseShellExecute = false;
+                     p.StartInfo.RedirectStandardOutput = true;
+                     p.StartInfo.RedirectStandardInput = true;
+                     metroLabel_Status.Text = "Status : Starting";
+                     p.Start();
+                     metroLabel_Status.Text = "Status : Selecting disk";
+                     p.StandardInput.WriteLine("Select disk " + diskNo);
+                     metroLabel_Status.Text = "Status : Cleaning";
+                     p.StandardInput.WriteLine("clean");
+                     metroLabel_Status.Text = "Status : Creating partition";
+                     p.StandardInput.WriteLine("create partition primary");
+                     metroLabel_Status.Text = "Status : Formatting";
+                     p.StandardInput.WriteLine("format quick fs=fat32");
+                     metroLabel_Status.Text = "Status : Activating";
+                     p.StandardInput.WriteLine("active");
+                     metroLabel_Status.Text = "Status : Assigning";
+                     p.StandardInput.WriteLine("assign");
+                     p.StandardInput.WriteLine("exit");
+                     p.WaitForExit();
+                     metroLabel_Status.Text = "Status : Prepering Device for Copying Installer Files ";
+                     #endregion*/
+                    /* if (metroRadioButton_İmage.Checked==true)
+                     {                      
+                         ExtractISO(@""+textBox_Browse.Text,path);
+                     }*/
+                   
                 }
             }     
         }
