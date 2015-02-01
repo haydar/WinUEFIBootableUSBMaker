@@ -101,7 +101,7 @@ namespace Win_UEFİ_Bootable_USB_Maker
                 else
                 {
                     #region CommandProcessesOfDiskpart
-                   /*  Process p = new Process();
+                     Process p = new Process();
                      p.StartInfo.CreateNoWindow = true;
                      p.StartInfo.FileName = Environment.SystemDirectory + @"\diskpart.exe";
                      p.StartInfo.UseShellExecute = false;
@@ -123,45 +123,20 @@ namespace Win_UEFİ_Bootable_USB_Maker
                      p.StandardInput.WriteLine("assign");
                      p.StandardInput.WriteLine("exit");
                      p.WaitForExit();
-                     metroLabel_Status.Text = "Status : Copying Files ";*/
+                     metroLabel_Status.Text = "Status : Copying Files ";
                      #endregion*
                      if (metroRadioButton_İmage.Checked==true)
-                     {
-                         if (IntPtr.Size == 8) //x64
-                         {
-                           SevenZipExtractor.SetLibraryPath(@"C:\Program Files\7-Zip\7z.dll");
-                         }
-                         else //x86
-                         {
-                            SevenZipCompressor.SetLibraryPath(@"C:\Program Files (x86)\7-Zip\7z.dll");
-                         }
-
-
-                         using (var file = new SevenZipExtractor(textBox_Browse.Text))
-                         {
-                             file.ExtractArchive(@"D:\\");
-                         }
-
-                        if (!File.Exists((Environment.GetFolderPath(Environment.SpecialFolder.System))+"\\7z.exe"))
-                        {
-                            File.Copy(Application.StartupPath+ @"\7z.exe",Environment.GetFolderPath(Environment.SpecialFolder.System)+@"\7z.exe");
-                        }
-                            string source = textBox_Browse.Text;
-                            string destination = path+"\\";
-                            Process extractor = new Process();
-                            extractor.StartInfo.CreateNoWindow = true;
-                            extractor.StartInfo.FileName = Application.StartupPath + @"\\7z.exe";
-                            extractor.Start();
-                            extractor.StartInfo.UseShellExecute = false;
-                            extractor.StartInfo.RedirectStandardOutput = true;
-                            extractor.StartInfo.RedirectStandardInput = true;
-                            extractor.StandardInput.WriteLine("x \"" + source + "\" -o" + destination);
-                            extractor.WaitForExit();
-                            
-                       
-                        
-                       MessageBox.Show("Test");
-                    }
+                     { 
+                        string source = textBox_Browse.Text;
+                        string destination = path + "\\";
+                        ProcessStartInfo pro = new ProcessStartInfo();
+                        pro.WindowStyle = ProcessWindowStyle.Hidden;
+                        pro.FileName = @""+Application.StartupPath + @"7z.exe";
+                        pro.Arguments = "-x " + source + " -o " + destination+"";
+                        Process x = Process.Start(pro);
+                        x.WaitForExit();
+                        MessageBox.Show("Test");
+                     }
                    
                 }
             }     
