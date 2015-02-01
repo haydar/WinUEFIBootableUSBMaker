@@ -50,9 +50,4 @@ C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker
 C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.xml
 C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.Common.pdb
 C:\Users\BT\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.Common.xml
-C:\Users\tester\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.Common.dll
-C:\Users\tester\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.dll
-C:\Users\tester\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.pdb
-C:\Users\tester\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.xml
-C:\Users\tester\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.Common.pdb
-C:\Users\tester\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\DiscUtils.Common.xml
+C:\Users\tester\Documents\GitHub\WinUEFIBootableUSBMaker\Win UEFI Bootable USB Maker\bin\Debug\SevenZipSharp.dll
