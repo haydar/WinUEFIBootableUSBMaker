@@ -77,6 +77,19 @@
             this.metroLabel_SourceFolder.TabIndex = 0;
             this.metroLabel_SourceFolder.Text = "Source           :";
             // 
+            // metroTextBox1
+            // 
+            this.metroTextBox1.Lines = new string[0];
+            this.metroTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.metroTextBox1.MaxLength = 32767;
+            this.metroTextBox1.Name = "metroTextBox1";
+            this.metroTextBox1.PasswordChar = '\0';
+            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox1.SelectedText = "";
+            this.metroTextBox1.Size = new System.Drawing.Size(0, 22);
+            this.metroTextBox1.TabIndex = 16;
+            this.metroTextBox1.UseSelectable = true;
+            // 
             // metroButton_BrowseFolder
             // 
             this.metroButton_BrowseFolder.Location = new System.Drawing.Point(335, 204);
@@ -130,6 +143,7 @@
             this.metroRadioButton_Folder.TabIndex = 10;
             this.metroRadioButton_Folder.Text = "Folder / Drive";
             this.metroRadioButton_Folder.UseSelectable = true;
+            this.metroRadioButton_Folder.CheckedChanged += new System.EventHandler(this.metroRadioButton_Folder_CheckedChanged);
             // 
             // metroRadioButton_İmage
             // 
@@ -142,6 +156,7 @@
             this.metroRadioButton_İmage.TabStop = true;
             this.metroRadioButton_İmage.Text = "İmage File";
             this.metroRadioButton_İmage.UseSelectable = true;
+            this.metroRadioButton_İmage.CheckedChanged += new System.EventHandler(this.metroRadioButton_İmage_CheckedChanged);
             // 
             // metroButton_Burn
             // 
@@ -156,7 +171,7 @@
             // metroLabel_Status
             // 
             this.metroLabel_Status.AutoSize = true;
-            this.metroLabel_Status.Location = new System.Drawing.Point(187, 349);
+            this.metroLabel_Status.Location = new System.Drawing.Point(188, 353);
             this.metroLabel_Status.Name = "metroLabel_Status";
             this.metroLabel_Status.Size = new System.Drawing.Size(102, 19);
             this.metroLabel_Status.TabIndex = 15;

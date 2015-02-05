@@ -23,6 +23,7 @@ namespace Win_UEFİ_Bootable_USB_Maker
 
         string path = "";
         string diskNo = "";
+
         void list_RemovableDevices()
         {
             metroComboBox_Devices.Items.Clear();
@@ -61,7 +62,7 @@ namespace Win_UEFİ_Bootable_USB_Maker
             else
             {
                 FolderBrowserDialog folder = new FolderBrowserDialog();
-                folder.SelectedPath = Environment.SpecialFolder.Desktop.ToString();
+                folder.RootFolder = Environment.SpecialFolder.Desktop;
                 if (folder.ShowDialog()==DialogResult.OK)
                 {
                     textBox_Browse.Text = folder.SelectedPath;
@@ -100,7 +101,7 @@ namespace Win_UEFİ_Bootable_USB_Maker
                 }
                 else
                 {
-                    #region CommandProcessesOfDiskpart
+                     #region CommandProcessesOfDiskpart
                      Process p = new Process();
                      p.StartInfo.CreateNoWindow = true;
                      p.StartInfo.FileName = Environment.SystemDirectory + @"\diskpart.exe";
@@ -123,20 +124,67 @@ namespace Win_UEFİ_Bootable_USB_Maker
                      p.StandardInput.WriteLine("assign");
                      p.StandardInput.WriteLine("exit");
                      p.WaitForExit();
-                     metroLabel_Status.Text = "Status : Copying Files ";
-                     #endregion*
-                     if (metroRadioButton_İmage.Checked==true)
-                     { 
+                    #endregion
+                    #region refindNewPath
+                    var searcher = new ManagementObjectSearcher(@"select * from Win32_DiskDrive");
+                    foreach (ManagementObject disk in searcher.Get())
+                    {
+                        var query = string.Format(@"ASSOCIATORS OF 
+                        {{Win32_DiskDrive.DeviceID='{0}'}}
+                        WHERE AssocClass = Win32_DiskDriveToDiskPartition",
+                        disk.Properties["DeviceID"].Value);
+                        foreach (ManagementObject diskPartition in new ManagementObjectSearcher(query).Get())
+                        {
+                            var query2 = string.Format(@"ASSOCIATORS OF 
+                            {{Win32_DiskPartition.DeviceID='{0}'}}
+                            WHERE AssocClass = Win32_LogicalDiskToPartition",
+                            diskPartition.Properties["DeviceId"].Value);
+
+                            foreach (ManagementObject logicalDisk in new ManagementObjectSearcher(query2).Get())
+                            {
+                                string tempDiskNo = diskPartition.Properties["DeviceId"].Value.ToString();
+                                string rediskNo = tempDiskNo[6].ToString();//there is DiskIndex on 6th Index 
+                                if (diskNo==rediskNo)
+                                {
+                                    path= logicalDisk.Properties["DeviceID"].Value.ToString();//Finding new path...
+                                }
+
+                            }
+                        }
+                    }
+                    #endregion
+                    if (metroRadioButton_İmage.Checked==true)
+                     {
+                        metroLabel_Status.Text = "Status : Copying Files ";
                         string source = textBox_Browse.Text;
-                        string destination = path + "\\";
+                        MessageBox.Show(source);
+                        string destination = path+@"\";
+                        MessageBox.Show(destination);
                         ProcessStartInfo pro = new ProcessStartInfo();
                         pro.WindowStyle = ProcessWindowStyle.Hidden;
-                        pro.FileName = @""+Application.StartupPath + @"7z.exe";
-                        pro.Arguments = "-x " + source + " -o " + destination+"";
+                        pro.FileName = Path.Combine(Application.StartupPath, @"7z.exe");
+                        pro.Arguments = string.Format(@"x ""{0}"" -o""{1}""", source, destination);
                         Process x = Process.Start(pro);
                         x.WaitForExit();
-                        MessageBox.Show("Test");
-                     }
+                        metroLabel_Status.Text = "Status : Burned Successfully!";
+                    }
+                    else
+                    {
+                        foreach (var file in Directory.GetFileSystemEntries(textBox_Browse.Text))
+                        {
+                            try
+                            {
+                                metroLabel_Status.Text = "Status : Files Copying...";
+                                if (!File.Exists(path + @"\" + Path.GetFileName(file))) { File.Copy(file, path + @"\" + Path.GetFileName(file)); }
+                                metroLabel_Status.Text = "Status : Burned Successfully!";
+                            }
+                            catch (UnauthorizedAccessException)
+                            {
+                                MetroMessageBox.Show(this, "Access Denied. A file is using by a other program. File Path:\n"+file);
+                            }
+                           
+                        }
+                    }
                    
                 }
             }     
@@ -197,6 +245,16 @@ namespace Win_UEFİ_Bootable_USB_Maker
             }
 
             #endregion
+        }
+
+        private void metroRadioButton_Folder_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox_Browse.ResetText();
+        }
+
+        private void metroRadioButton_İmage_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox_Browse.ResetText();
         }
     }
 }
